@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
-from registrees.apps.relationtp.views import TreeViewSet, ParkViewSet
+from registrees.apps.relationtp.views import TreeViewSet, ParkViewSet, AuthLoginView
 
 
 
@@ -30,4 +30,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # inicializa todas las URLs en un solo punto
     url(r'^', include(router.urls)),
+    #agrega url para poder logear
+    url(r'^devices/login', AuthLoginView.as_view(), name='devices_login'),
 ]
