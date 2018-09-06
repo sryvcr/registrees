@@ -1,0 +1,8 @@
+registrees/__pycache__/
+registrees/__init__.pyc
+registrees/__settings__.pyc
+registrees/apps/__pycache__/
+registrees/apps/__init__.pyc
+registrees/apps/relationtp/__pycache__/
+registrees/apps/relationtp/__init__.pyc
+registrees/apps/relationtp/migrations/__pycache__/
