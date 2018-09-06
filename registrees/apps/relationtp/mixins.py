@@ -1,6 +1,8 @@
 from datetime import datetime
 from django.db import models
 from rest_framework import filters, viewsets, status
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 class ManagerMain(models.Manager):
@@ -26,6 +28,8 @@ class TimeStampedModel(models.Model):
 
 # Mixins para agrupar todos los filters en todos los ViewSet
 class DefaultViewSetMixin(object):
+    authentication_classes = (SessionAuthentication, ) # clase permite autentificar
+    permission_classes = (IsAuthenticated, ) # solamente acceden siempre y cuando esten autentificados
     filter_backends = (filters.DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter, )
     paginate_by = 10 # por cuanto vamos a paginar
     paginate_by_param = 'page_size'
